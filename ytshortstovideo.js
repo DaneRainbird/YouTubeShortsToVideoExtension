@@ -1,5 +1,6 @@
 let lastUrl = location.href;
 
+// Check if the user is navigating to a YouTube Shorts URL 
 new MutationObserver(() => {
     const url = location.href;
     if (url !== lastUrl) {
@@ -15,3 +16,11 @@ new MutationObserver(() => {
     }
     
 }).observe(document, {subtree: true, childList: true});
+
+// Check if the URL directly entered is YouTube Shorts URL (i.e. mutation observer won't fire)
+if (location.href.includes('youtube.com/shorts')) {
+    document.body.innerHTML = "Redirecting from Shorts to YouTube Video, please wait..."
+
+    const videoId = lastUrl.split('/').pop();
+    location.href = `https://youtube.com/watch?v=${videoId}`;
+}
