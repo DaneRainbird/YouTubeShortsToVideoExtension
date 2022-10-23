@@ -7,4 +7,4 @@
 set ZIPNAME=YouTubeShortsToVideoExtension.zip
 
 @REM Create the zip file
-"C:\Program Files\7-Zip\7z.exe" a -t7z %ZIPNAME% ..\ -mx0 -xr!make -xr!.git -xr!.gitignore
+"C:\Program Files\7-Zip\7z.exe" a -tzip %ZIPNAME% ..\ -mx0 -xr!make -xr!.git -xr!.gitignore
